@@ -87,6 +87,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        View addTintBtn = findViewById(R.id.btn_add_tint);
+        addTintBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTint();
+            }
+        });
     }
 
     private void vectorDrawableSelected() {
@@ -98,6 +107,16 @@ public class MainActivity extends AppCompatActivity {
     private void pngSelected() {
         for (int i = 0; i < N; i++) {
             mMeasurableImageViews[i].setImageResource(sPngIds[i]);
+            ImageViewCompat.setImageTintList(mMeasurableImageViews[i], new ColorStateList(new int[][]{new int[]{}},
+                    new int[]{
+                            Color.parseColor(GRID_ITEM_COLORS[i])
+                    }));
+
+        }
+    }
+
+    private void setTint() {
+        for (int i = 0; i < N; i++) {
             ImageViewCompat.setImageTintList(mMeasurableImageViews[i], new ColorStateList(new int[][]{new int[]{}},
                     new int[]{
                             Color.parseColor(GRID_ITEM_COLORS[i])

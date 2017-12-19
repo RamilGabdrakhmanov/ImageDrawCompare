@@ -51,30 +51,44 @@
             style="@style/TestableImageView" />
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/rg_source"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/btn_vector"
+        <RadioGroup
+            android:id="@+id/rg_source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vector drawable" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/btn_png"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PNG with tint" />
+            <RadioButton
+                android:id="@+id/btn_vector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vector drawable" />
 
-        <RadioButton
-            android:id="@+id/btn_simple_png"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Simple PNG" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/btn_png"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PNG with tint" />
+
+            <RadioButton
+                android:id="@+id/btn_simple_png"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simple PNG" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_add_tint"
+            android:text="Add tint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/tv_duration"
