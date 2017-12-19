@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ImageDrawCompare</string>
+    <string name="duration">%.3f ms</string>
 </resources>

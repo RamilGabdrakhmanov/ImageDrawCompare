@@ -1,18 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ramilgabdrakhmanov.imagedrawcompare.MainActivity">
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+
+        <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
+            android:id="@+id/iv_image10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/rg_source"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/btn_vector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vector drawable" />
+
+        <RadioButton
+            android:id="@+id/btn_png"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PNG with tint" />
+
+        <RadioButton
+            android:id="@+id/btn_simple_png"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple PNG" />
+    </RadioGroup>
 
     <TextView
+        android:id="@+id/tv_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="bottom|right"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        tools:text="Calculating...." />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/btn_clean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="Clean"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+</FrameLayout>
