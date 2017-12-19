@@ -12,68 +12,44 @@
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
+            style="@style/TestableImageView" />
 
         <ramilgabdrakhmanov.imagedrawcompare.MeasurableImageView
             android:id="@+id/iv_image10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            style="@style/TestableImageView" />
     </LinearLayout>
-
 
     <RadioGroup
         android:id="@+id/rg_source"
