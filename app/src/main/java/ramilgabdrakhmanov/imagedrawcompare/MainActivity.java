@@ -117,11 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTint() {
         for (int i = 0; i < N; i++) {
-            ImageViewCompat.setImageTintList(mMeasurableImageViews[i], new ColorStateList(new int[][]{new int[]{}},
-                    new int[]{
-                            Color.parseColor(GRID_ITEM_COLORS[i])
-                    }));
-
+            ImageViewCompat.setImageTintList(mMeasurableImageViews[i], getResources().getColorStateList(R.color.color_red_btn));
         }
     }
 
