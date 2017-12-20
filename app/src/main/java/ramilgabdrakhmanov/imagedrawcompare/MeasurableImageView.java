@@ -9,13 +9,9 @@ import android.util.AttributeSet;
  * Created by ramil.gabdrakhmanov on 14.12.17.
  */
 
-public class MeasurableImageView extends android.support.v7.widget.AppCompatImageView {
+public class MeasurableImageView extends TintableImageView {
 
     private ViewRedrawnListener mViewRedrawnListener;
-
-    public MeasurableImageView(Context context) {
-        super(context);
-    }
 
     public MeasurableImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);

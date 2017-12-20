@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="TintableImageView">
+        <attr name="supportTint" format="reference"/>
+    </declare-styleable>
+</resources>
