@@ -74,6 +74,9 @@ class CreateSelectorsTask extends DefaultTask {
                             'android:state_focused': 'true',
                             'android:state_pressed': 'false',
                             'android:state_selected': 'true')
+
+                    item('android:drawable': '@drawable/selector_cake_pressed',
+                            'android:state_pressed': 'true')
                 }
             }
 
