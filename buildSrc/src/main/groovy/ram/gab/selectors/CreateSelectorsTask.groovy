@@ -42,18 +42,23 @@ class CreateSelectorsTask extends DefaultTask {
             def normalOutFile = new File(drawableDir, "selector_cake_normal.xml")
             def pressedOutFile = new File(drawableDir, "selector_cake_pressed.xml")
 
-            changePathColor(parsed, normalColor)
-            saveToXml(parsed, normalOutFile)
+            if (changePathColor(parsed, normalColor)) {
+                saveToXml(parsed, normalOutFile)
+            }
 
-            changePathColor(parsed, pressedColor)
-            saveToXml(parsed, pressedOutFile)
+            if (changePathColor(parsed, pressedColor)) {
+                saveToXml(parsed, pressedOutFile)
+            }
 
             def charset = 'UTF-8'
             def outWriter = file.newWriter(charset)
             new MarkupBuilder(outWriter).with {
                 mkp.xmlDeclaration(version: '1.0', encoding: charset)
                 mkp.comment('This is generated xml file')
+                mkp.yield "\r\n"
                 selector('xmlns:android': 'http://schemas.android.com/apk/res/android') {
+                    mkp.yield "\r\n\r\n"
+                    mkp.comment('Non focused states')
                     item('android:drawable': '@drawable/selector_cake_normal',
                             'android:state_focused': 'false',
                             'android:state_pressed': 'false',
@@ -64,7 +69,8 @@ class CreateSelectorsTask extends DefaultTask {
                             'android:state_pressed': 'false',
                             'android:state_selected': 'true')
 
-
+                    mkp.yield "\r\n\r\n"
+                    mkp.comment('Focused states')
                     item('android:drawable': '@drawable/selector_cake_pressed',
                             'android:state_focused': 'true',
                             'android:state_pressed': 'false',
@@ -75,6 +81,8 @@ class CreateSelectorsTask extends DefaultTask {
                             'android:state_pressed': 'false',
                             'android:state_selected': 'true')
 
+                    mkp.yield "\r\n\r\n"
+                    mkp.comment('Pressed')
                     item('android:drawable': '@drawable/selector_cake_pressed',
                             'android:state_pressed': 'true')
                 }
@@ -84,10 +92,16 @@ class CreateSelectorsTask extends DefaultTask {
         }
     }
 
-    def changePathColor(GPathResult drawable, String color) {
+    boolean changePathColor(GPathResult drawable, String color) {
+        boolean colorChanged = false
         drawable.path.each {
-            it.'@android:fillColor' = color
+            if (it.'@android:fillColor' != null) {
+                it.'@android:fillColor' = color
+                colorChanged = true
+            }
         }
+
+        return colorChanged
     }
 
     def saveToXml(GPathResult drawable, File outFile) {
