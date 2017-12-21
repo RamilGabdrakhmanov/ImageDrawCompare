@@ -11,6 +11,13 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
 
+
+        <ramilgabdrakhmanov.imagedrawcompare.TintableImageView
+           android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:clickable="true"
+            android:src="@drawable/selector_cake_00ff0000_0000ff00" />
+
         <ramilgabdrakhmanov.imagedrawcompare.TintableImageView
             android:id="@+id/iv_image0"
             style="@style/TestableImageView"
