@@ -16,7 +16,7 @@
            android:layout_width="24dp"
             android:layout_height="24dp"
             android:clickable="true"
-            android:src="@drawable/selector_cake_00ff0000_0000ff00" />
+            android:src="@drawable/selector_cake_ffff0000_ff00ff00" />
 
         <ramilgabdrakhmanov.imagedrawcompare.TintableImageView
             android:id="@+id/iv_image0"

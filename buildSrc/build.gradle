@@ -1,0 +1,11 @@
+apply plugin: 'groovy'
+
+dependencies {
+    repositories {
+        maven { url 'http://art.at.odkl.ru/artifactory/at-repo' }
+        jcenter()
+    }
+    compile gradleApi()
+    compile localGroovy()
+    compile "com.android.tools.build:gradle:2.3.3"
+}
