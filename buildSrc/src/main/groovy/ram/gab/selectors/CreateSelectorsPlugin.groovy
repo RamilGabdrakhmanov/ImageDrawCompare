@@ -1,5 +1,6 @@
 package ram.gab.selectors
 
+import com.android.build.gradle.AppExtension
 import org.gradle.api.GradleScriptException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,5 +17,7 @@ class CreateSelectorsPlugin implements Plugin<Project> {
         }
         def tasksGroup = "icons"
         project.tasks.create(group: tasksGroup, name: "createSelectors", type: CreateSelectorsTask) {}
+        AppExtension android = project.android
+        android.sourceSets.main.res.srcDir(Utils.getOutDir(project))
     }
 }

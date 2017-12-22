@@ -34,13 +34,17 @@ class CreateSelectorsTask extends DefaultTask {
         drawableDir.eachFileMatch(FileType.FILES, ~/selector_cake_ffff0000_ff00ff00.xml/) { file ->
             logger.warn projectName + "Drawable xml: " + file.path
 
+
+            File outDir = new File(Utils.getOutDir(project), "drawable")
+            outDir.mkdirs()
+
             def parsed = new XmlSlurper().parse(file)
 
             def normalColor = "#FFff0000"
             def pressedColor = "#FF00ff00"
 
-            def normalOutFile = new File(drawableDir, "selector_cake_normal.xml")
-            def pressedOutFile = new File(drawableDir, "selector_cake_pressed.xml")
+            def normalOutFile = new File(outDir, "selector_cake_normal.xml")
+            def pressedOutFile = new File(outDir, "selector_cake_pressed.xml")
 
             if (changePathColor(parsed, normalColor)) {
                 saveToXml(parsed, normalOutFile)
@@ -51,7 +55,7 @@ class CreateSelectorsTask extends DefaultTask {
             }
 
             def charset = 'UTF-8'
-            def outWriter = file.newWriter(charset)
+            def outWriter = new File(outDir, "selector_cake_ffff0000_ff00ff00.xml").newWriter(charset)
             new MarkupBuilder(outWriter).with {
                 mkp.xmlDeclaration(version: '1.0', encoding: charset)
                 mkp.comment('This is generated xml file')

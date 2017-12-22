@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
     static final int[] sViewIdis = {R.id.iv_image1, R.id.iv_image2, R.id.iv_image3, R.id.iv_image4, R.id.iv_image5,
             R.id.iv_image6, R.id.iv_image7, R.id.iv_image8, R.id.iv_image9, R.id.iv_image10};
 
-    static final int[] sPngIds = {R.drawable.ic_account_card_details_black_24dp, R.drawable.ic_account_multiple_outline_black_24dp, R.drawable.ic_account_network_black_24dp,
-            R.drawable.ic_alarm_bell_black_24dp, R.drawable.ic_alert_decagram_black_24dp, R.drawable.ic_animation_black_24dp,
-            R.drawable.ic_battery_80_black_24dp, R.drawable.ic_cake_black_24dp, R.drawable.ic_dice_5_black_24dp,
-            R.drawable.ic_message_bulleted_black_24dp};
+//    static final int[] sPngIds = {R.drawable.ic_account_card_details_black_24dp, R.drawable.ic_account_multiple_outline_black_24dp, R.drawable.ic_account_network_black_24dp,
+//            R.drawable.ic_alarm_bell_black_24dp, R.drawable.ic_alert_decagram_black_24dp, R.drawable.ic_animation_black_24dp,
+//            R.drawable.ic_battery_80_black_24dp, R.drawable.ic_cake_black_24dp, R.drawable.ic_dice_5_black_24dp,
+//            R.drawable.ic_message_bulleted_black_24dp};
 
     static final int[] sVertorIds = {R.drawable.account_card_details, R.drawable.account_multiple_outline, R.drawable.account_network,
             R.drawable.alarm_bell, R.drawable.alert_decagram, R.drawable.animation,
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void pngSelected() {
         for (int i = 0; i < N; i++) {
-            mMeasurableImageViews[i].setImageResource(sPngIds[i]);
+//            mMeasurableImageViews[i].setImageResource(sPngIds[i]);
             ImageViewCompat.setImageTintList(mMeasurableImageViews[i], new ColorStateList(new int[][]{new int[]{}},
                     new int[]{
                             Color.parseColor(GRID_ITEM_COLORS[i])
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void singlePngSelected() {
         for (int i = 0; i < N; i++) {
-            mMeasurableImageViews[i].setImageResource(sPngIds[i]);
+//            mMeasurableImageViews[i].setImageResource(sPngIds[i]);
         }
     }
 }
