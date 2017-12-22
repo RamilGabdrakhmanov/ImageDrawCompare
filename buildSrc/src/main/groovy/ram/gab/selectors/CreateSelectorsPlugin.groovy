@@ -16,7 +16,10 @@ class CreateSelectorsPlugin implements Plugin<Project> {
             throw new GradleScriptException("This plugin must be applied only to android projects.")
         }
         def tasksGroup = "icons"
-        project.tasks.create(group: tasksGroup, name: "createSelectors", type: CreateSelectorsTask) {}
+        project.tasks.create(group: tasksGroup, name: "createSelectors", type: CreateSelectorsTask) {
+            inputDir = new File("/Users/ramil.gabdrakhmanov/StudioProjects/ImageDrawCompare/app/vd_icons")
+            outputDir = Utils.getOutDir(project)
+        }
         AppExtension android = project.android
         android.sourceSets.main.res.srcDir(Utils.getOutDir(project))
     }

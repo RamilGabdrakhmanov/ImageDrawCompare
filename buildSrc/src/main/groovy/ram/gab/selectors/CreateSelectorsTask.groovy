@@ -1,47 +1,62 @@
 package ram.gab.selectors
 
-import com.android.build.gradle.BaseExtension
 import groovy.io.FileType
 import groovy.util.slurpersupport.GPathResult
 import groovy.xml.MarkupBuilder
 import groovy.xml.StreamingMarkupBuilder
 import groovy.xml.XmlUtil
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
+import org.gradle.api.tasks.incremental.IncrementalTaskInputs
 
 /**
  * Created by ivan.puzyrev on 04.10.2016.
  */
 class CreateSelectorsTask extends DefaultTask {
 
+    @InputDirectory
+    def File inputDir
+
+    @OutputDirectory
+    def File outputDir
+
     @TaskAction
-    def createSelecttorsTask() {
-//        BaseExtension android = project.android
-//        iterateOverResDirs(project.name, android.sourceSets.main.res.srcDirs)
+    void execute(IncrementalTaskInputs inputs) {
+        def startTime = System.currentTimeMillis()
+        println inputs.incremental ? 'CHANGED inputs considered out of date'
+                : 'ALL inputs considered out of date'
+        if (!inputs.incremental)
+            project.delete(outputDir.listFiles())
 
+        inputs.outOfDate { change ->
+            println "out of date: ${change.file.name}"
+            createSelectorForSingleFile(change.file)
+        }
 
-        fillLocalMapsFromDir("lol", new File("/Users/ramil.gabdrakhmanov/StudioProjects/ImageDrawCompare/app/vd_icons"))
+        inputs.removed { change ->
+            println "removed: ${change.file.name}"
+        }
+
+        def time = System.currentTimeMillis() - startTime
+        logger.warn("Created in " + time + " milliseconds")
     }
 
-    def iterateOverResDirs(String projectName, Set<File> resDirs) {
-        resDirs.each { File file ->
-            logger.warn "Resource dir: " + file.path
-            def drawableDir = new File(file, 'drawable')
-            if (drawableDir.exists()) {
-                fillLocalMapsFromDir(projectName, drawableDir)
-            }
+    def createSelectorForDir(File drawableDir) {
+        drawableDir.eachFileMatch(FileType.FILES, ~/selector_cake_ffff0000_ff00ff00.xml/) { file ->
+            createSelectorForSingleFile(file)
         }
     }
 
-    def fillLocalMapsFromDir(String projectName, File drawableDir) {
-        drawableDir.eachFileMatch(FileType.FILES, ~/selector_cake_ffff0000_ff00ff00.xml/) { file ->
-            logger.warn projectName + "Drawable xml: " + file.path
+    def createSelectorForSingleFile(File vectorDrawable) {
+        if (vectorDrawable.name.matches("selector_cake_ffff0000_ff00ff00.xml")) {
+            logger.warn "Start work on " + vectorDrawable.name
 
-
-            File outDir = new File(Utils.getOutDir(project), "drawable")
+            File outDir = new File(outputDir, "drawable")
             outDir.mkdirs()
 
-            def parsed = new XmlSlurper().parse(file)
+            def parsed = new XmlSlurper().parse(vectorDrawable)
 
             def normalColor = "#FFff0000"
             def pressedColor = "#FF00ff00"
@@ -94,8 +109,6 @@ class CreateSelectorsTask extends DefaultTask {
                             'android:state_pressed': 'true')
                 }
             }
-
-            logger.warn 'OK!'
         }
     }
 
