@@ -16,8 +16,11 @@ class CreateSelectorsTask extends DefaultTask {
 
     @TaskAction
     def createSelecttorsTask() {
-        BaseExtension android = project.android
-        iterateOverResDirs(project.name, android.sourceSets.main.res.srcDirs)
+//        BaseExtension android = project.android
+//        iterateOverResDirs(project.name, android.sourceSets.main.res.srcDirs)
+
+
+        fillLocalMapsFromDir("lol", new File("/Users/ramil.gabdrakhmanov/StudioProjects/ImageDrawCompare/app/vd_icons"))
     }
 
     def iterateOverResDirs(String projectName, Set<File> resDirs) {
