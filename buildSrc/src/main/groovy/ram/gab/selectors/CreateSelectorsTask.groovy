@@ -87,7 +87,7 @@ class CreateSelectorsTask extends DefaultTask {
             }
 
             def charset = 'UTF-8'
-            def outWriter = new File(outDir, vectorDrawable.name).newWriter(charset)
+            def outWriter = new File(outDir, "clickable" + nameWithoutColors + ".xml").newWriter(charset)
             new MarkupBuilder(outWriter).with {
                 mkp.xmlDeclaration(version: '1.0', encoding: charset)
                 mkp.comment('This is generated xml file')
